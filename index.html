@@ -372,9 +372,9 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 20px 60px rgba(31, 111, 235, 0.25);
-            width: 100%;
-            max-width: 900px;
+            width: 900px;
             height: 400px;
+            
             background: linear-gradient(135deg, #1f3a5f 0%, #0d1117 100%);
             display: flex;
             align-items: center;
@@ -998,50 +998,82 @@
         }
         
         .admin-box .admin-sub {
-            color: var(--text-secondary);
             font-size: 13px;
-            margin-bottom: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
         }
         
-        .admin-box input,
-        .admin-box textarea {
-            width: 100%;
+        .admin-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .admin-form input,
+        .admin-form textarea,
+        .admin-form select {
             padding: 10px;
-            margin-bottom: 12px;
-            background: var(--dark-bg);
             border: 1px solid var(--border);
-            color: var(--text-primary);
             border-radius: 6px;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            font-size: 13px;
             font-family: inherit;
         }
         
-        .admin-box button {
-            width: 100%;
-            padding: 10px;
+        .admin-form textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .admin-form button {
+            padding: 10px 16px;
             background: var(--accent-green);
             color: white;
             border: none;
             border-radius: 6px;
             cursor: pointer;
             font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s;
         }
         
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
+        .admin-form button:hover {
+            background: var(--accent-green-light);
+        }
+        
+        .close-modal {
+            float: right;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close-modal:hover {
+            color: var(--text-primary);
+        }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
             .header-content {
-                padding: 0 20px;
+                padding: 0 32px;
             }
             
+            .hero-content {
+                gap: 40px;
+            }
+            
+            .hero-image {
+                width: 100%;
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 768px) {
             nav {
-                gap: 20px;
-            }
-            
-            nav a {
-                font-size: 12px;
-            }
-            
-            .logo {
-                font-size: 18px;
+                display: none;
             }
             
             .header-cta {
@@ -1054,10 +1086,9 @@
                 font-size: 12px;
             }
             
-            /* Hero */
             .hero {
-                margin-top: 70px;
                 padding: 60px 24px;
+                margin-top: 60px;
                 min-height: auto;
             }
             
@@ -1067,128 +1098,33 @@
             }
             
             .hero-text h1 {
-                font-size: 40px;
-            }
-            
-            .hero-text p {
-                font-size: 16px;
-            }
-            
-            .hero-cta {
-                flex-wrap: wrap;
-                gap: 12px;
-            }
-            
-            .btn-large,
-            .btn-large-outline {
-                padding: 12px 24px;
-                font-size: 14px;
-                flex: 1;
-                min-width: 150px;
-            }
-            
-            .hero-image {
-                height: 300px;
-                max-width: 100%;
-            }
-            
-            /* Features */
-            .features {
-                padding: 60px 24px;
-            }
-            
-            .section-title {
-                margin-bottom: 40px;
-            }
-            
-            .section-title h2 {
                 font-size: 32px;
             }
             
-            .section-title p {
-                font-size: 14px;
+            .hero-image {
+                height: 250px;
+                box-shadow: 0 10px 30px rgba(31, 111, 235, 0.15);
+            }
+            
+            .features,
+            .stats,
+            .timeline,
+            .problem-section,
+            .cta-section {
+                padding: 60px 24px;
             }
             
             .features-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 16px;
-            }
-            
-            .feature-card {
-                padding: 24px 16px;
-            }
-            
-            .feature-icon {
-                width: 50px;
-                height: 50px;
-            }
-            
-            .feature-icon svg {
-                width: 24px;
-                height: 24px;
-            }
-            
-            .feature-card h3 {
-                font-size: 16px;
-            }
-            
-            .feature-card p {
-                font-size: 13px;
-            }
-            
-            /* Stats */
-            .stats {
-                padding: 60px 24px;
             }
             
             .stats-grid {
                 grid-template-columns: 1fr;
-                gap: 32px;
-            }
-            
-            .stat-card {
-                padding: 24px;
-            }
-            
-            .stat-number {
-                font-size: 42px;
-            }
-            
-            .stat-label {
-                font-size: 14px;
-            }
-            
-            /* Timeline */
-            .timeline {
-                padding: 60px 24px;
+                gap: 24px;
             }
             
             .timeline-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 16px;
-            }
-            
-            .timeline-item {
-                padding: 24px 16px;
-            }
-            
-            .timeline-number {
-                width: 48px;
-                height: 48px;
-                font-size: 20px;
-            }
-            
-            .timeline-item h3 {
-                font-size: 14px;
-            }
-            
-            .timeline-item p {
-                font-size: 12px;
-            }
-            
-            /* Problem Section */
-            .problem-section {
-                padding: 60px 24px;
             }
             
             .problem-container {
@@ -1196,182 +1132,30 @@
                 gap: 40px;
             }
             
-            .problem-text h2 {
-                font-size: 32px;
-            }
-            
-            .problem-list {
-                gap: 16px;
-            }
-            
-            .problem-item {
-                gap: 16px;
-                padding-bottom: 16px;
-            }
-            
-            .problem-icon {
-                width: 40px;
-                height: 40px;
-            }
-            
-            .problem-icon svg {
-                width: 20px;
-                height: 20px;
-            }
-            
-            .problem-item h3 {
-                font-size: 14px;
-            }
-            
-            .problem-item p {
-                font-size: 13px;
-            }
-            
             .problem-image {
-                height: 350px;
-            }
-            
-            /* CTA */
-            .cta-section {
-                padding: 60px 24px;
-            }
-            
-            .cta-section h2 {
-                font-size: 32px;
-            }
-            
-            .cta-section p {
-                font-size: 16px;
-            }
-            
-            .email-form {
-                flex-direction: column;
-                max-width: 100%;
-            }
-            
-            .email-form input,
-            .email-form button {
-                width: 100%;
-            }
-            
-            /* Footer */
-            footer {
-                padding: 40px 24px;
+                height: 300px;
             }
             
             .footer-content {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 24px;
-                margin-bottom: 24px;
-            }
-            
-            .footer-column h3 {
-                font-size: 12px;
-                margin-bottom: 12px;
-            }
-            
-            .footer-column a {
-                font-size: 13px;
-                margin-bottom: 8px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .header-content {
-                padding: 0 16px;
-            }
-            
-            nav {
-                display: none;
-            }
-            
-            .logo {
-                font-size: 16px;
-                gap: 8px;
-            }
-            
-            .logo-icon {
-                width: 32px;
-                height: 32px;
-                font-size: 18px;
-            }
-            
-            .header-cta {
-                gap: 6px;
-            }
-            
-            .btn-outline,
-            .btn-primary {
-                padding: 8px 12px;
-                font-size: 11px;
-            }
-            
-            /* Hero */
-            .hero {
-                margin-top: 60px;
-                padding: 40px 16px;
-            }
-            
-            .hero-text h1 {
-                font-size: 32px;
-                margin-bottom: 16px;
-            }
-            
-            .hero-text p {
-                font-size: 14px;
-                margin-bottom: 24px;
-            }
-            
-            .btn-large,
-            .btn-large-outline {
-                padding: 10px 20px;
-                font-size: 13px;
-            }
-            
-            .hero-image {
-                height: 250px;
-            }
-            
-            /* Sections */
-            .features,
-            .stats,
-            .timeline,
-            .problem-section,
-            .cta-section {
-                padding: 40px 16px;
             }
             
             .section-title h2 {
-                font-size: 28px;
+                font-size: 32px;
             }
             
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .timeline-grid {
-                grid-template-columns: 1fr;
+            .problem-text h2 {
+                font-size: 32px;
+                margin-bottom: 24px;
             }
             
             .cta-section h2 {
-                font-size: 28px;
+                font-size: 32px;
             }
             
-            .cta-section p {
-                font-size: 15px;
-            }
-            
-            footer {
-                padding: 32px 16px;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 20px;
+            .email-form {
+                flex-direction: column;
             }
         }
     </style>
@@ -1387,11 +1171,11 @@
                 <a href="#features">Features</a>
                 <a href="#how-it-works">How It Works</a>
                 <a href="#problem">The Problem</a>
-                <a href="#contact">Contact</a>
+                <a href="#cta">Get Started</a>
             </nav>
             <div class="header-cta">
-                <button class="btn-outline">Sign In</button>
-                <button class="btn-primary">Get Started</button>
+                <button class="btn-outline">Login</button>
+                <button class="btn-primary">Sign Up</button>
             </div>
         </div>
     </header>
@@ -1399,52 +1183,61 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Digital <span>Safety</span> for Seniors</h1>
-                <p>Protect your loved ones from online threats with simple, powerful digital safety tools designed specifically for seniors.</p>
+                <h1>Digital Safety for <span>Seniors</span></h1>
+                <p>Protect your loved ones from digital threats. DigiMaat provides comprehensive security solutions designed specifically for seniors, making the digital world safer and more accessible.</p>
                 <div class="hero-cta">
                     <button class="btn-large">Start Free Trial</button>
-                    <button class="btn-large-outline">Learn More</button>
+                    <button class="btn-large-outline">Watch Demo</button>
                 </div>
             </div>
             <div class="hero-image">
-                <!-- Placeholder for hero image -->
+                <img src="https://images.unsplash.com/photo-1556155092-490a1ba16284?w=600" alt="Senior using digital device safely">
             </div>
         </div>
     </section>
 
     <section class="features" id="features">
         <div class="section-title">
-            <h2>Why <span>DigiMaat</span></h2>
-            <p>Comprehensive digital safety features built with seniors in mind</p>
+            <h2>Key <span>Features</span></h2>
+            <p>Everything you need to protect your family online</p>
         </div>
         <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-icon">
-                    <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 6 9 12 9 12s9-6 9-12V5l-9-4z"/></svg>
+                    <svg viewBox="0 0 24 24" stroke="currentColor">
+                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"></path>
+                    </svg>
                 </div>
                 <h3>Advanced Protection</h3>
-                <p>AI-powered threat detection keeps your data safe 24/7</p>
+                <p>Real-time threat detection and prevention from phishing, malware, and scams</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">
-                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg>
+                    <svg viewBox="0 0 24 24" stroke="currentColor">
+                        <circle cx="12" cy="12" r="1"></circle>
+                        <path d="M12 1C6.48 1 2 5.48 2 11s4.48 10 10 10 10-4.48 10-10S17.52 1 12 1zm-2 15l-5-5 1.41-1.41L10 13.17l7.59-7.59L19 7l-9 9z"></path>
+                    </svg>
                 </div>
                 <h3>Easy to Use</h3>
-                <p>Simple interface designed for all tech levels</p>
+                <p>Simple, intuitive interface designed with seniors in mind</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">
-                    <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-2.75 3.54-2.29-2.29c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41l2.99 2.99c.39.39 1.02.39 1.41 0l3.45-4.42c.39-.39.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0z"/></svg>
+                    <svg viewBox="0 0 24 24" stroke="currentColor">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-2.75-3.54-4.04 5.71h12l-3.97-5.46z"></path>
+                    </svg>
                 </div>
-                <h3>Verified Safety</h3>
-                <p>Trust and security verified by experts</p>
+                <h3>Activity Monitoring</h3>
+                <p>Keep track of online activities and receive alerts for suspicious behavior</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">
-                    <svg viewBox="0 0 24 24"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                    <svg viewBox="0 0 24 24" stroke="currentColor">
+                        <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path>
+                    </svg>
                 </div>
                 <h3>24/7 Support</h3>
-                <p>Dedicated support team always ready to help</p>
+                <p>Dedicated customer support team available whenever you need help</p>
             </div>
         </div>
     </section>
@@ -1453,11 +1246,11 @@
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-number">50K+</div>
-                <div class="stat-label">Seniors Protected Worldwide</div>
+                <div class="stat-label">Seniors Protected</div>
             </div>
             <div class="stat-card">
                 <div class="stat-number">99.9%</div>
-                <div class="stat-label">Uptime Guaranteed</div>
+                <div class="stat-label">Threat Detection Rate</div>
             </div>
             <div class="stat-card">
                 <div class="stat-number">24/7</div>
@@ -1469,27 +1262,28 @@
     <section class="timeline" id="how-it-works">
         <div class="section-title">
             <h2>How It <span>Works</span></h2>
+            <p>Get started in just 4 simple steps</p>
         </div>
         <div class="timeline-grid">
             <div class="timeline-item">
                 <div class="timeline-number">1</div>
                 <h3>Sign Up</h3>
-                <p>Create your account in seconds</p>
+                <p>Create your account in less than 2 minutes</p>
             </div>
             <div class="timeline-item">
                 <div class="timeline-number">2</div>
-                <h3>Setup</h3>
-                <p>Configure protection settings</p>
+                <h3>Install</h3>
+                <p>Download and install on all devices</p>
             </div>
             <div class="timeline-item">
                 <div class="timeline-number">3</div>
-                <h3>Monitor</h3>
-                <p>Get real-time security alerts</p>
+                <h3>Configure</h3>
+                <p>Set up protection preferences</p>
             </div>
             <div class="timeline-item">
                 <div class="timeline-number">4</div>
-                <h3>Protect</h3>
-                <p>Stay safe online every day</p>
+                <h3>Enjoy</h3>
+                <p>Browse safely with peace of mind</p>
             </div>
         </div>
     </section>
@@ -1497,57 +1291,65 @@
     <section class="problem-section" id="problem">
         <div class="problem-container">
             <div class="problem-text">
-                <h2>The Digital <span style="color: var(--accent-green);">Challenge</span></h2>
+                <h2>Why Seniors Need <span>Digital Protection</span></h2>
                 <div class="problem-list">
                     <div class="problem-item">
                         <div class="problem-icon">
-                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                            <svg viewBox="0 0 24 24" stroke="currentColor">
+                                <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>Targeted Scams</h3>
+                            <p>Seniors are 3x more likely to be victims of online scams and fraud</p>
+                        </div>
+                    </div>
+                    <div class="problem-item">
+                        <div class="problem-icon">
+                            <svg viewBox="0 0 24 24" stroke="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path>
+                            </svg>
                         </div>
                         <div>
                             <h3>Phishing Attacks</h3>
-                            <p>Seniors are 5x more likely to fall victim to phishing scams</p>
+                            <p>Sophisticated phishing emails designed to steal personal and financial information</p>
                         </div>
                     </div>
                     <div class="problem-item">
                         <div class="problem-icon">
-                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                            <svg viewBox="0 0 24 24" stroke="currentColor">
+                                <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4c-1.48 0-2.85.43-4.01 1.17l1.46 1.46C10.21 5.23 11.08 5 12 5c3.04 0 5.5 2.46 5.5 5.5v.5H19c1.66 0 3 1.34 3 3 0 1.13-.64 2.11-1.56 2.62l1.45 1.45c.67-.33 1.28-.77 1.77-1.29C23.5 15.97 24 14.61 24 13c0-2.64-2.05-4.78-4.65-4.96z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>Malware Threats</h3>
+                            <p>Malicious software that can compromise device security and personal data</p>
+                        </div>
+                    </div>
+                    <div class="problem-item">
+                        <div class="problem-icon">
+                            <svg viewBox="0 0 24 24" stroke="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path>
+                            </svg>
                         </div>
                         <div>
                             <h3>Identity Theft</h3>
-                            <p>Personal information often targeted by fraudsters</p>
-                        </div>
-                    </div>
-                    <div class="problem-item">
-                        <div class="problem-icon">
-                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
-                        </div>
-                        <div>
-                            <h3>Malware & Viruses</h3>
-                            <p>Unwanted software can compromise your system</p>
-                        </div>
-                    </div>
-                    <div class="problem-item">
-                        <div class="problem-icon">
-                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
-                        </div>
-                        <div>
-                            <h3>Online Fraud</h3>
-                            <p>Billions lost annually to online scams and fraud</p>
+                            <p>Protection against unauthorized access to personal and financial accounts</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="problem-image">
-                <!-- Placeholder for problem image -->
+                <img src="https://images.unsplash.com/photo-1563986768609-322d080ae896?w=500" alt="Cybersecurity illustration">
             </div>
         </div>
     </section>
 
-    <section class="cta-section" id="contact">
+    <section class="cta-section" id="cta">
         <div class="cta-content">
-            <h2>Ready to Stay Safe Online?</h2>
-            <p>Join thousands of seniors who are protecting themselves with DigiMaat</p>
-            <form class="email-form">
+            <h2>Ready to Protect Your Family?</h2>
+            <p>Join thousands of families who trust DigiMaat to keep their seniors safe online</p>
+            <form class="email-form" onsubmit="handleEmailSubmit(event)">
                 <input type="email" placeholder="Enter your email" required>
                 <button type="submit">Get Started</button>
             </form>
@@ -1558,32 +1360,71 @@
         <div class="footer-content">
             <div class="footer-column">
                 <h3>Product</h3>
-                <a href="#">Features</a>
-                <a href="#">Pricing</a>
-                <a href="#">Security</a>
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#security">Security</a>
             </div>
             <div class="footer-column">
                 <h3>Company</h3>
-                <a href="#">About</a>
-                <a href="#">Blog</a>
-                <a href="#">Careers</a>
+                <a href="#about">About Us</a>
+                <a href="#blog">Blog</a>
+                <a href="#careers">Careers</a>
+            </div>
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <a href="#help">Help Center</a>
+                <a href="#contact">Contact Us</a>
+                <a href="#status">Status</a>
             </div>
             <div class="footer-column">
                 <h3>Legal</h3>
-                <a href="#">Privacy</a>
-                <a href="#">Terms</a>
-                <a href="#">Contact</a>
-            </div>
-            <div class="footer-column">
-                <h3>Support</h3>
-                <a href="#">Help Center</a>
-                <a href="#">Documentation</a>
-                <a href="#">Contact Us</a>
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of Service</a>
+                <a href="#cookies">Cookie Policy</a>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 DigiMaat. All rights reserved. | <span class="admin-link">Admin</span></p>
+            <p>&copy; 2024 DigiMaat. All rights reserved. | <span class="admin-link" onclick="toggleAdminModal()">Admin</span></p>
         </div>
     </footer>
+
+    <div class="admin-modal" id="adminModal">
+        <div class="admin-box">
+            <span class="close-modal" onclick="toggleAdminModal()">&times;</span>
+            <h3>Admin Panel</h3>
+            <p class="admin-sub">Update website content</p>
+            <form class="admin-form" onsubmit="handleAdminSubmit(event)">
+                <input type="text" id="sectionSelect" placeholder="Section (hero/features/stats)" required>
+                <textarea id="contentInput" placeholder="Content to update" required></textarea>
+                <button type="submit">Update Content</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleAdminModal() {
+            const modal = document.getElementById('adminModal');
+            modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function handleEmailSubmit(e) {
+            e.preventDefault();
+            alert('Thank you for your interest! Check your email for more details.');
+            e.target.reset();
+        }
+
+        function handleAdminSubmit(e) {
+            e.preventDefault();
+            alert('Content updated successfully!');
+            toggleAdminModal();
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('adminModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
